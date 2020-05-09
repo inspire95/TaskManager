@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "TaskManagerDB": "Server=localhost; userid=postgres; password=dawid; database=TaskManagerDB"
+  }
+} 
