@@ -22,5 +22,15 @@ namespace TaskManager.Domain.Entities
             Active = true;
             CreatedAt = DateTime.Now;
         }
+
+        public bool validatePassword(string password, string storedPassword)
+        {
+            return BCrypt.Net.BCrypt.Verify(password, storedPassword);
+        }
+
+        public string hashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password);
+        }
     }
 }

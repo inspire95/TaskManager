@@ -6,5 +6,7 @@ namespace TaskManager.Application.Interfaces
     {
         User GetById(int id);
         User GetByEmail(string email);
+        User Add(User user);
+        User Signin(User user);
     }
 }

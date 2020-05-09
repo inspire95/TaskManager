@@ -8,5 +8,6 @@ namespace TaskManager.Domain.Interfaces.Repositories
     {
         User GetById(int id);
         User GetByEmail(string email);
+        User Add(User user);
     }
 }

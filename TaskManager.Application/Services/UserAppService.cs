@@ -22,5 +22,15 @@ namespace TaskManager.Application.Services
         {
             return _userService.GetByEmail(email);
         }
+
+        public User Add(User user)
+        {
+            return _userService.Add(user);
+        }
+
+        public User Signin(User user)
+        {
+            return _userService.Signin(user);
+        }
     }
 }

@@ -44,12 +44,26 @@ namespace TaskManager.WebApi.Controllers
         {
             try
             {
-                var storedUser = _userService.GetByEmail(user.Email);
-                return new ResponseMessage(false, null, "", HttpStatusCode.BadRequest);
+                var storedUser = _userService.Signin(user);
+                return new ResponseMessage(true, storedUser, "", HttpStatusCode.OK);
             }
             catch (Exception err)
             {
-                return new ResponseMessage(false, err, err.Message, HttpStatusCode.BadRequest);
+                return new ResponseMessage(false, null, err.Message, HttpStatusCode.BadRequest);
+            }
+        }
+
+        [HttpPost("signup")]
+        public ResponseMessage Signup(User user)
+        {
+            try
+            {
+                var storedUser = _userService.Add(user);
+                return new ResponseMessage(true, storedUser, "User created with success!", HttpStatusCode.OK);
+            }
+            catch (Exception err)
+            {
+                return new ResponseMessage(false, null, err.Message, HttpStatusCode.BadRequest);
             }
         }
     }
