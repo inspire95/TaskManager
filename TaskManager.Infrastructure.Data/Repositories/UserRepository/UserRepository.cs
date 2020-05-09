@@ -1,28 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using TaskManager.Domain.Entities;
 using TaskManager.Domain.Interfaces.Repositories;
 using TaskManager.Infrastructure.Data.Context;
 
-namespace TaskManager.Infrastructure.Data.Repositories.User
+namespace TaskManager.Infrastructure.Data.Repositories.UserRepository
 {
-    public class UserRespository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly TaskManagerContext _context;
-        public UserRespository(TaskManagerContext context)
+        public UserRepository(TaskManagerContext context)
         {
             _context = context;
         }
 
-        public Domain.Entities.User GetById(int id)
+        public User GetById(int id)
         {
             return _context.Users.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
 
-        public Domain.Entities.User GetByEmail(string email)
+        public User GetByEmail(string email)
         {
             return _context.Users.Where(x => x.Email.Equals(email)).FirstOrDefault();
         }
