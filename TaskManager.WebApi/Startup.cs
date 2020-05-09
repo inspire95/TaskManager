@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using TaskManager.Application.Interfaces;
+using TaskManager.Application.Services;
 using TaskManager.Domain.Interfaces.Repositories;
 using TaskManager.Domain.Interfaces.Services;
 using TaskManager.Domain.Services;
@@ -52,6 +47,7 @@ namespace TaskManager.WebApi
                                                .UseNpgsql(conn, m => m.MigrationsAssembly("TaskManager.Infrastructure.Data")));
 
             //Services
+            services.AddScoped<IUserAppService, UserAppService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRespository>();
 

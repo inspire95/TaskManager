@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
+using TaskManager.Application.Interfaces;
 using TaskManager.WebApi.Models;
 using TaskManager.Domain.Entities;
-using TaskManager.Domain.Interfaces.Services;
-
 
 namespace TaskManager.WebApi.Controllers
 {
@@ -12,9 +11,9 @@ namespace TaskManager.WebApi.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserService _userService;
+        private readonly IUserAppService _userService;
 
-        public UserController(IUserService userService)
+        public UserController(IUserAppService userService)
         {
             _userService = userService;
         }
