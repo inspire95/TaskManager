@@ -76,5 +76,19 @@ namespace TaskManager.WebApi.Controllers
                 return new ResponseMessage(false, null, err.Message, HttpStatusCode.BadRequest);
             }
         }
+
+        [HttpPut("update")]
+        public async Task<ResponseMessage> Update(Domain.Entities.Task task)
+        {
+            try
+            {
+                var storedBoard = await _taskService.Update(task);
+                return new ResponseMessage(true, storedBoard, "Board updated with success!", HttpStatusCode.OK);
+            }
+            catch (Exception err)
+            {
+                return new ResponseMessage(false, null, err.Message, HttpStatusCode.BadRequest);
+            }
+        }
     }
 }

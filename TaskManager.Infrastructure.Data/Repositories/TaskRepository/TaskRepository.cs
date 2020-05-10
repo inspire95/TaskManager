@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TaskManager.Domain.Entities;
 using TaskManager.Domain.Interfaces.Repositories;
 using TaskManager.Infrastructure.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace TaskManager.Infrastructure.Data.Repositories.TaskRepository
 {
@@ -32,6 +33,24 @@ namespace TaskManager.Infrastructure.Data.Repositories.TaskRepository
             try
             {
                 _context.Tasks.Add(task);
+                await _context.SaveChangesAsync();
+                return task;
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+        }
+
+        public async Task<Domain.Entities.Task> Update(Domain.Entities.Task task)
+        {
+            try
+            {
+                _context.Tasks.Attach(task);
+                var entry = _context.Entry(task);
+                entry.State = EntityState.Modified;
+
+                //_context.Tasks.Update(task);
                 await _context.SaveChangesAsync();
                 return task;
             }

@@ -11,5 +11,6 @@ namespace TaskManager.Domain.Interfaces.Repositories
         Entities.Task GetById(int id);
         List<Entities.Task> GetAllByBoardId(int boardId);
         Task<Domain.Entities.Task> Add(Domain.Entities.Task task);
+        Task<Domain.Entities.Task> Update(Domain.Entities.Task task);
     }
 }

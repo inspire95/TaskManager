@@ -32,9 +32,9 @@ namespace TaskManager.Domain.Services
 
         public async Task<Domain.Entities.Task> Add(Domain.Entities.Task task)
         {
-            var storedBoard = _boardRepository.GetById(task.BoardId);
+            var storedTask = _boardRepository.GetById(task.BoardId);
 
-            if (storedBoard == null)
+            if (storedTask == null)
             {
                 throw new Exception("Board not exists! Choice another name!");
             }
@@ -49,6 +49,33 @@ namespace TaskManager.Domain.Services
                 throw error;
             }
 
+        }
+
+        public async Task<Domain.Entities.Task> Update(Domain.Entities.Task task)
+        {
+            var storedTask = _taskRepository.GetById(task.Id);
+
+            if (storedTask != null)
+            {
+                try
+                {
+                    storedTask.Title = task.Title != null ? task.Title : storedTask.Title;
+                    storedTask.Content = task.Content != null ? task.Content : storedTask.Content;
+                    storedTask.BoardId = task.BoardId;
+                    storedTask.Status = task.Status;
+                    storedTask.Active = task.Active;
+                    storedTask.UpdatedAt = DateTime.Now;
+
+                    var updateTask = await _taskRepository.Update(storedTask);
+                    return updateTask;
+                }
+                catch (Exception error)
+                {
+                    throw error;
+                }
+            }
+
+            throw new Exception("Board not exists! Choice another name!");
         }
     }
 }

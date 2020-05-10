@@ -11,5 +11,6 @@ namespace TaskManager.Application.Interfaces
         Domain.Entities.Task GetById(int id);
         List<Domain.Entities.Task> GetAllByBoardId(int boardId);
         Task<Domain.Entities.Task> Add(Domain.Entities.Task task);
+        Task<Domain.Entities.Task> Update(Domain.Entities.Task task);
     }
 }

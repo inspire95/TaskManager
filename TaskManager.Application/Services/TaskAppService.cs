@@ -31,5 +31,10 @@ namespace TaskManager.Application.Services
         {
             return await _taskService.Add(task);
         }
+
+        public async Task<Domain.Entities.Task> Update(Domain.Entities.Task task)
+        {
+            return await _taskService.Update(task);
+        }
     }
 }
