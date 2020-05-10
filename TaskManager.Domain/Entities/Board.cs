@@ -20,6 +20,8 @@ namespace TaskManager.Domain.Entities
         {
             UserGroups = new List<UserGroup>();
             Tasks = new List<Task>();
+            Active = true;
+            CreatedAt = DateTime.Now;
         }
     }
 }

@@ -38,7 +38,7 @@ namespace TaskManager.Infrastructure.Data.Config
             builder.Property(user => user.UpdatedAt)
                 .IsRequired();
 
-            builder.HasMany(user => user.Boards).WithOne(board => board.User);
+            //builder.HasMany(user => user.Boards).WithOne(board => board.User);
 
             builder.HasData(
                 new User()

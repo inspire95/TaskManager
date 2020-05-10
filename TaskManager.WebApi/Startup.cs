@@ -10,6 +10,7 @@ using TaskManager.Domain.Interfaces.Repositories;
 using TaskManager.Domain.Interfaces.Services;
 using TaskManager.Domain.Services;
 using TaskManager.Infrastructure.Data.Context;
+using TaskManager.Infrastructure.Data.Repositories.BoardRepository;
 using TaskManager.Infrastructure.Data.Repositories.UserRepository;
 
 namespace TaskManager.WebApi
@@ -46,10 +47,15 @@ namespace TaskManager.WebApi
             services.AddDbContext<TaskManagerContext>(option => option.UseLazyLoadingProxies()
                                                .UseNpgsql(conn, m => m.MigrationsAssembly("TaskManager.Infrastructure.Data")));
 
-            //Services
+            //Services User
             services.AddScoped<IUserAppService, UserAppService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
+
+            //Services Board
+            services.AddScoped<IBoardAppService, BoardAppService>();
+            services.AddScoped<IBoardService, BoardService>();
+            services.AddScoped<IBoardRepository, BoardRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

@@ -21,8 +21,8 @@ namespace TaskManager.Infrastructure.Data.Config
             builder.Property(board => board.UserId)
                 .IsRequired();
 
-            builder.HasOne(board => board.User)
-                .WithMany(user => user.Boards);
+            //builder.HasOne(board => board.User)
+            //   .WithMany(user => user.Boards);
 
             builder.Property(board => board.Active)
                 .IsRequired();
