@@ -9,7 +9,7 @@ namespace TaskManager.Domain.Entities
         public string Title { get; set; }
         public string Content { get; set; }
         public int BoardId { get; set; }
-        public virtual Board Board { get; set; }
+        //public virtual Board Board { get; set; }
         public TaskStatusEnum Status { get; set; }
         public bool Active { get; set; }
         public DateTime CreatedAt { get; set; }

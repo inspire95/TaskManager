@@ -30,8 +30,8 @@ namespace TaskManager.Infrastructure.Data.Config
             builder.HasMany(board => board.UserGroups)
                 .WithOne(usergroup => usergroup.Board);
 
-            builder.HasMany(board => board.Tasks)
-                .WithOne(task => task.Board);
+            //builder.HasMany(board => board.Tasks)
+            //    .WithOne(task => task.Board);
 
             builder.Property(board => board.CreatedAt)
                 .IsRequired();

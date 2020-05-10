@@ -11,6 +11,7 @@ using TaskManager.Domain.Interfaces.Services;
 using TaskManager.Domain.Services;
 using TaskManager.Infrastructure.Data.Context;
 using TaskManager.Infrastructure.Data.Repositories.BoardRepository;
+using TaskManager.Infrastructure.Data.Repositories.TaskRepository;
 using TaskManager.Infrastructure.Data.Repositories.UserRepository;
 
 namespace TaskManager.WebApi
@@ -56,6 +57,11 @@ namespace TaskManager.WebApi
             services.AddScoped<IBoardAppService, BoardAppService>();
             services.AddScoped<IBoardService, BoardService>();
             services.AddScoped<IBoardRepository, BoardRepository>();
+
+            //Services Task
+            services.AddScoped<ITaskAppService, TaskAppService>();
+            services.AddScoped<ITaskService, TaskService>();
+            services.AddScoped<ITaskRepository, TaskRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

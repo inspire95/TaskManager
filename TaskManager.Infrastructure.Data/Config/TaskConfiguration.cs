@@ -20,7 +20,7 @@ namespace TaskManager.Infrastructure.Data.Config
 
             builder.Property(task => task.BoardId);
 
-            builder.HasOne(task => task.Board).WithMany(board => board.Tasks);
+            //builder.HasOne(task => task.Board).WithMany(board => board.Tasks);
 
             builder.Property(task => task.Status).IsRequired();
 

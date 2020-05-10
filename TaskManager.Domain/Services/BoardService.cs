@@ -61,7 +61,7 @@ namespace TaskManager.Domain.Services
                 {
                     storedBoard.Name = board.Name != null ? board.Name : storedBoard.Name;
                     storedBoard.Description = board.Description != null ? board.Description : storedBoard.Description;
-                    storedBoard.UserGroups = board.UserGroups;
+                    storedBoard.UserGroups = board.UserGroups.Count > 0 ? board.UserGroups : storedBoard.UserGroups;
                     storedBoard.Active = board.Active;
                     storedBoard.UpdatedAt = DateTime.Now;
 
