@@ -10,5 +10,6 @@ namespace TaskManager.Application.Interfaces
         List<Board> GetAllByUserId(int userId);
         Task<Board> Add(Board board);
         Task<Board> Update(Board board);
+        Task<Board> Delete(int id);
     }
 }

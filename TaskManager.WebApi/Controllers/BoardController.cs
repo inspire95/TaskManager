@@ -90,6 +90,18 @@ namespace TaskManager.WebApi.Controllers
                 return new ResponseMessage(false, null, err.Message, HttpStatusCode.BadRequest);
             }
         }
-
+        [HttpDelete("delete/{id}")]
+        public async Task<ResponseMessage> Delete(int id)
+        {
+            try
+            {
+                var storedBoard = await _boardService.Delete(id);
+                return new ResponseMessage(true, null, "Board removed with success!", HttpStatusCode.OK);
+            }
+            catch (Exception err)
+            {
+                return new ResponseMessage(false, null, err.Message, HttpStatusCode.BadRequest);
+            }
+        }
     }
 }

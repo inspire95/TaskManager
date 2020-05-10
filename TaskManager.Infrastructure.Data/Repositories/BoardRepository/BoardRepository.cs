@@ -59,5 +59,19 @@ namespace TaskManager.Infrastructure.Data.Repositories.BoardRepository
                 throw error;
             }
         }
+
+        public async Task<Board> Delete(Board board)
+        {
+            try
+            {
+                _context.Boards.Remove(board);
+                await _context.SaveChangesAsync();
+                return board;
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+        }
     }
 }

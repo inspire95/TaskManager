@@ -13,5 +13,6 @@ namespace TaskManager.Domain.Interfaces.Repositories
         List<Board> GetAllByUserId(int userId);
         Task<Board> Add(Board board);
         Task<Board> Update(Board board);
+        Task<Board> Delete(Board board);
     }
 }

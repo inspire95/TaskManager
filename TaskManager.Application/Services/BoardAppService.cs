@@ -34,5 +34,10 @@ namespace TaskManager.Application.Services
         {
             return await _boardService.Update(board);
         }
+
+        public async Task<Board> Delete(int id)
+        {
+            return await _boardService.Delete(id);
+        }
     }
 }
