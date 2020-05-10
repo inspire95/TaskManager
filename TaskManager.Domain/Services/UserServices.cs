@@ -14,17 +14,17 @@ namespace TaskManager.Domain.Services
             _userRepository = userRepository;
         }
 
-        public User GetById(int id)
+        public UserEntity GetById(int id)
         {
             return _userRepository.GetById(id);
         }
 
-        public User GetByEmail(string email)
+        public UserEntity GetByEmail(string email)
         {
             return _userRepository.GetByEmail(email);
         }
 
-        public User Add(User user)
+        public UserEntity Add(UserEntity user)
         {
             var storedUser = _userRepository.GetByEmail(user.Email);
 
@@ -45,7 +45,7 @@ namespace TaskManager.Domain.Services
             throw new Exception("User already exists");
         }
 
-        public User Signin(User user)
+        public UserEntity Signin(UserEntity user)
         {
             var storedUser = _userRepository.GetByEmail(user.Email);
 

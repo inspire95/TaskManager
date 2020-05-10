@@ -14,12 +14,12 @@ namespace TaskManager.Infrastructure.Data.Repositories.UserRepository
             _context = context;
         }
 
-        public User GetById(int id)
+        public UserEntity GetById(int id)
         {
             return _context.Users.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
 
-        public User GetByEmail(string email)
+        public UserEntity GetByEmail(string email)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace TaskManager.Infrastructure.Data.Repositories.UserRepository
             }
         }
 
-        public User Add(User user)
+        public UserEntity Add(UserEntity user)
         {
             try
             {

@@ -6,10 +6,10 @@ namespace TaskManager.Application.Interfaces
 {
     public interface IBoardAppService
     {
-        Board GetById(int id);
-        List<Board> GetAllByUserId(int userId);
-        Task<Board> Add(Board board);
-        Task<Board> Update(Board board);
-        Task<Board> Delete(int id);
+        BoardEntity GetById(int id);
+        List<BoardEntity> GetAllByUserId(int userId);
+        Task<BoardEntity> Add(BoardEntity board);
+        Task<BoardEntity> Update(BoardEntity board);
+        Task<BoardEntity> Delete(int id);
     }
 }

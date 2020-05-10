@@ -6,8 +6,8 @@ namespace TaskManager.Domain.Interfaces.Repositories
 {
     public interface IUserRepository
     {
-        User GetById(int id);
-        User GetByEmail(string email);
-        User Add(User user);
+        UserEntity GetById(int id);
+        UserEntity GetByEmail(string email);
+        UserEntity Add(UserEntity user);
     }
 }

@@ -13,22 +13,22 @@ namespace TaskManager.Application.Services
             _userService = userService;
         }
 
-        public User GetById(int id)
+        public UserEntity GetById(int id)
         {
             return _userService.GetById(id);
         }
 
-        public User GetByEmail(string email)
+        public UserEntity GetByEmail(string email)
         {
             return _userService.GetByEmail(email);
         }
 
-        public User Add(User user)
+        public UserEntity Add(UserEntity user)
         {
             return _userService.Add(user);
         }
 
-        public User Signin(User user)
+        public UserEntity Signin(UserEntity user)
         {
             return _userService.Signin(user);
         }

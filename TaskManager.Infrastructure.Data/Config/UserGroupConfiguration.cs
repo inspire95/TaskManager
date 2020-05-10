@@ -4,9 +4,9 @@ using TaskManager.Domain.Entities;
 
 namespace TaskManager.Infrastructure.Data.Config
 {
-    public class UserGroupConfiguration : IEntityTypeConfiguration<UserGroup>
+    public class UserGroupConfiguration : IEntityTypeConfiguration<UserGroupEntity>
     {
-        public void Configure(EntityTypeBuilder<UserGroup> builder)
+        public void Configure(EntityTypeBuilder<UserGroupEntity> builder)
         {
             builder.HasKey(usergroup => new { usergroup.UserId, usergroup.BoardId });
 

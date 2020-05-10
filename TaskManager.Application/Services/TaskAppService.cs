@@ -17,22 +17,22 @@ namespace TaskManager.Application.Services
             _taskService = taskService;
         }
 
-        public List<Domain.Entities.Task> GetAllByBoardId(int boardId)
+        public List<TaskEntity> GetAllByBoardId(int boardId)
         {
             return _taskService.GetAllByBoardId(boardId);
         }
 
-        public Domain.Entities.Task GetById(int id)
+        public TaskEntity GetById(int id)
         {
             return _taskService.GetById(id);
         }
 
-        public async Task<Domain.Entities.Task> Add(Domain.Entities.Task task)
+        public async Task<TaskEntity> Add(TaskEntity task)
         {
             return await _taskService.Add(task);
         }
 
-        public async Task<Domain.Entities.Task> Update(Domain.Entities.Task task)
+        public async Task<TaskEntity> Update(TaskEntity task)
         {
             return await _taskService.Update(task);
         }

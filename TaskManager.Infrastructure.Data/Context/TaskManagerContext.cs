@@ -6,10 +6,10 @@ namespace TaskManager.Infrastructure.Data.Context
 {
     public class TaskManagerContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<UserGroup> UserGroups { get; set; }
-        public DbSet<Board> Boards { get; set; }
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
+        public DbSet<UserGroupEntity> UserGroups { get; set; }
+        public DbSet<BoardEntity> Boards { get; set; }
+        public DbSet<TaskEntity> Tasks { get; set; }
 
         public TaskManagerContext(DbContextOptions options) : base(options)
         {

@@ -8,11 +8,11 @@ namespace TaskManager.Domain.Interfaces.Services
 {
     public interface IBoardService
     {
-        Board GetById(int id);
-        Board GetByName(string boardName);
-        List<Board> GetAllByUserId(int userId);
-        Task<Board> Add(Board board);
-        Task<Board> Update(Board board);
-        Task<Board> Delete(int id);
+        BoardEntity GetById(int id);
+        BoardEntity GetByName(string boardName);
+        List<BoardEntity> GetAllByUserId(int userId);
+        Task<BoardEntity> Add(BoardEntity board);
+        Task<BoardEntity> Update(BoardEntity board);
+        Task<BoardEntity> Delete(int id);
     }
 }

@@ -4,9 +4,9 @@ using TaskManager.Domain.Entities;
 
 namespace TaskManager.Infrastructure.Data.Config
 {
-    public class BoardConfiguration : IEntityTypeConfiguration<Board>
+    public class BoardConfiguration : IEntityTypeConfiguration<BoardEntity>
     {
-        public void Configure(EntityTypeBuilder<Board> builder)
+        public void Configure(EntityTypeBuilder<BoardEntity> builder)
         {
             builder.HasKey(board => board.Id);
 
@@ -30,8 +30,8 @@ namespace TaskManager.Infrastructure.Data.Config
             builder.HasMany(board => board.UserGroups)
                 .WithOne(usergroup => usergroup.Board);
 
-            //builder.HasMany(board => board.Tasks)
-            //    .WithOne(task => task.Board);
+            builder.HasMany(board => board.Tasks)
+                .WithOne(task => task.Board);
 
             builder.Property(board => board.CreatedAt)
                 .IsRequired();

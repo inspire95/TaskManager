@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,22 +18,22 @@ namespace TaskManager.Infrastructure.Data.Repositories.BoardRepository
             _context = context;
         }
 
-        public Board GetById(int id)
+        public BoardEntity GetById(int id)
         {
             return _context.Boards.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
 
-        public Board GetByName(string boardName)
+        public BoardEntity GetByName(string boardName)
         {
-            return _context.Boards.Where(x => x.Name.Equals(boardName)).FirstOrDefault();
+            return _context.Boards.Where(x => x.Name.Equals(boardName)).Include(x => x.Tasks).FirstOrDefault();
         }
 
-        public List<Board> GetAllByUserId(int userId)
+        public List<BoardEntity> GetAllByUserId(int userId)
         {
             return _context.Boards.Where(x => x.UserId.Equals(userId)).ToList();
         }
 
-        public async Task<Board> Add(Board board)
+        public async Task<BoardEntity> Add(BoardEntity board)
         {
             try
             {
@@ -46,7 +47,7 @@ namespace TaskManager.Infrastructure.Data.Repositories.BoardRepository
             }
         }
 
-        public async Task<Board> Update(Board board)
+        public async Task<BoardEntity> Update(BoardEntity board)
         {
             try
             {
@@ -60,7 +61,7 @@ namespace TaskManager.Infrastructure.Data.Repositories.BoardRepository
             }
         }
 
-        public async Task<Board> Delete(Board board)
+        public async Task<BoardEntity> Delete(BoardEntity board)
         {
             try
             {

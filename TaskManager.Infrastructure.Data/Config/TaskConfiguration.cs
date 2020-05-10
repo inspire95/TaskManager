@@ -4,9 +4,9 @@ using TaskManager.Domain.Entities;
 
 namespace TaskManager.Infrastructure.Data.Config
 {
-    public class TaskConfiguration : IEntityTypeConfiguration<Task>
+    public class TaskConfiguration : IEntityTypeConfiguration<TaskEntity>
     {
-        public void Configure(EntityTypeBuilder<Task> builder)
+        public void Configure(EntityTypeBuilder<TaskEntity> builder)
         {
             builder.HasKey(task => task.Id);
 

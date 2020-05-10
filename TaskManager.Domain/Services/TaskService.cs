@@ -20,17 +20,17 @@ namespace TaskManager.Domain.Services
             _boardRepository = boardRepository;
         }
 
-        public List<Domain.Entities.Task> GetAllByBoardId(int boardId)
+        public List<TaskEntity> GetAllByBoardId(int boardId)
         {
             return _taskRepository.GetAllByBoardId(boardId);
         }
 
-        public Domain.Entities.Task GetById(int id)
+        public TaskEntity GetById(int id)
         {
             return _taskRepository.GetById(id);
         }
 
-        public async Task<Domain.Entities.Task> Add(Domain.Entities.Task task)
+        public async Task<TaskEntity> Add(TaskEntity task)
         {
             var storedTask = _boardRepository.GetById(task.BoardId);
 
@@ -48,10 +48,9 @@ namespace TaskManager.Domain.Services
             {
                 throw error;
             }
-
         }
 
-        public async Task<Domain.Entities.Task> Update(Domain.Entities.Task task)
+        public async Task<TaskEntity> Update(TaskEntity task)
         {
             var storedTask = _taskRepository.GetById(task.Id);
 

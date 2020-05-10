@@ -16,22 +16,22 @@ namespace TaskManager.Domain.Services
             _boardRepository = boardRepository;
         }
 
-        public Board GetById(int id)
+        public BoardEntity GetById(int id)
         {
             return _boardRepository.GetById(id);
         }
 
-        public Board GetByName(string boardName)
+        public BoardEntity GetByName(string boardName)
         {
             return _boardRepository.GetByName(boardName);
         }
 
-        public List<Board> GetAllByUserId(int userId)
+        public List<BoardEntity> GetAllByUserId(int userId)
         {
             return _boardRepository.GetAllByUserId(userId);
         }
 
-        public async Task<Board> Add(Board board)
+        public async Task<BoardEntity> Add(BoardEntity board)
         {
             var storedBoard = _boardRepository.GetByName(board.Name);
 
@@ -51,7 +51,7 @@ namespace TaskManager.Domain.Services
             throw new Exception("Board already exists! Choice another name!");
         }
 
-        public async Task<Board> Update(Board board)
+        public async Task<BoardEntity> Update(BoardEntity board)
         {
             var storedBoard = _boardRepository.GetById(board.Id);
 
@@ -77,7 +77,7 @@ namespace TaskManager.Domain.Services
             throw new Exception("Board not exists! Choice another name!");
         }
 
-        public async Task<Board> Delete(int id)
+        public async Task<BoardEntity> Delete(int id)
         {
             var storedBoard = _boardRepository.GetById(id);
 

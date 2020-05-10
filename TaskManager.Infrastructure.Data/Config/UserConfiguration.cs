@@ -5,9 +5,9 @@ using TaskManager.Domain.Entities;
 
 namespace TaskManager.Infrastructure.Data.Config
 {
-    public class UserConfiguration : IEntityTypeConfiguration<User>
+    public class UserConfiguration : IEntityTypeConfiguration<UserEntity>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
             builder.HasKey(user => user.Id);
 
@@ -41,7 +41,7 @@ namespace TaskManager.Infrastructure.Data.Config
             //builder.HasMany(user => user.Boards).WithOne(board => board.User);
 
             builder.HasData(
-                new User()
+                new UserEntity()
                 {
                     Id = 1,
                     Name = "root",

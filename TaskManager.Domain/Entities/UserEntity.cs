@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TaskManager.Domain.Entities
 {
-    public class User
+    public class UserEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,9 +15,9 @@ namespace TaskManager.Domain.Entities
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
-        //public virtual ICollection<Board> Boards { get; set; }
+        public virtual ICollection<BoardEntity> Boards { get; set; }
 
-        public User()
+        public UserEntity()
         {
             //Board = new list <Board>;
             Active = true;

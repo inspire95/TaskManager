@@ -18,17 +18,17 @@ namespace TaskManager.Infrastructure.Data.Repositories.TaskRepository
             _context = context;
         }
 
-        public Domain.Entities.Task GetById(int id)
+        public Domain.Entities.TaskEntity GetById(int id)
         {
             return _context.Tasks.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
 
-        public List<Domain.Entities.Task> GetAllByBoardId(int boardId)
+        public List<Domain.Entities.TaskEntity> GetAllByBoardId(int boardId)
         {
             return _context.Tasks.Where(x => x.BoardId.Equals(boardId)).ToList();
         }
 
-        public async Task<Domain.Entities.Task> Add(Domain.Entities.Task task)
+        public async Task<Domain.Entities.TaskEntity> Add(Domain.Entities.TaskEntity task)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace TaskManager.Infrastructure.Data.Repositories.TaskRepository
             }
         }
 
-        public async Task<Domain.Entities.Task> Update(Domain.Entities.Task task)
+        public async Task<Domain.Entities.TaskEntity> Update(Domain.Entities.TaskEntity task)
         {
             try
             {

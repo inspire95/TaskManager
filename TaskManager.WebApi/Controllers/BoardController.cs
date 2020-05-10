@@ -64,7 +64,7 @@ namespace TaskManager.WebApi.Controllers
         }
 
         [HttpPost("add")]
-        public async Task<ResponseMessage> Add(Board board)
+        public async Task<ResponseMessage> Add(BoardEntity board)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace TaskManager.WebApi.Controllers
         }
 
         [HttpPut("update")]
-        public async Task<ResponseMessage> Update(Board board)
+        public async Task<ResponseMessage> Update(BoardEntity board)
         {
             try
             {
