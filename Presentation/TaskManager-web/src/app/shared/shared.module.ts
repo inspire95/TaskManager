@@ -10,7 +10,8 @@ import {
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
 } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
@@ -32,7 +33,8 @@ import { HeaderComponent } from "./components/header/header.component";
         ReactiveFormsModule,
         MatInputModule,
         BrowserAnimationsModule,
-        MatMenuModule
+        MatMenuModule,
+        MatDialogModule
     ],
     exports: [
         MatToolbarModule,
@@ -48,7 +50,8 @@ import { HeaderComponent } from "./components/header/header.component";
         EqualValidator,
         EmailValidator,
         HeaderComponent,
-        MatMenuModule
+        MatMenuModule,
+        MatDialogModule
     ]
 })
 export class SharedModule {}

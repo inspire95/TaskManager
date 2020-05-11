@@ -9,11 +9,12 @@ import { AuthComponent } from "./auth/auth.component";
 
 // Modules
 import { SharedModule } from "./shared/shared.module";
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from "./home/home.component";
+import { BoardModule } from "./board/board.module";
 
 @NgModule({
     declarations: [AppComponent, AuthComponent, HomeComponent],
-    imports: [BrowserModule, AppRoutingModule, SharedModule],
+    imports: [BrowserModule, AppRoutingModule, SharedModule, BoardModule],
     providers: [],
     bootstrap: [AppComponent]
 })

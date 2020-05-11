@@ -41,7 +41,7 @@
                 </app-input-validation-container>
                 <button
                     *ngIf="mode === 'signin'"
-                    [disabled]="!frmAuth.valid"
+                    [disabled]="!frmAuth.valid || isLoading"
                     mat-raised-button
                     color="primary"
                     (click)="signin()"
@@ -50,7 +50,7 @@
                 </button>
                 <button
                     *ngIf="mode === 'signup'"
-                    [disabled]="!frmAuth.valid"
+                    [disabled]="!frmAuth.valid || isLoading"
                     mat-raised-button
                     color="primary"
                     (click)="signup()"
