@@ -39,9 +39,25 @@
                         />
                     </mat-form-field>
                 </app-input-validation-container>
-                <button *ngIf="mode === 'signin'" [disabled]="!frmAuth.valid" mat-raised-button color="primary">Signin</button>
-                <button *ngIf="mode === 'signup'" [disabled]="!frmAuth.valid" mat-raised-button color="primary">Register</button>
-                <a (click)="signin()" *ngIf="mode === 'signin'" (click)="toggleMode()">Signup</a>
+                <button
+                    *ngIf="mode === 'signin'"
+                    [disabled]="!frmAuth.valid"
+                    mat-raised-button
+                    color="primary"
+                    (click)="signin()"
+                >
+                    Signin
+                </button>
+                <button
+                    *ngIf="mode === 'signup'"
+                    [disabled]="!frmAuth.valid"
+                    mat-raised-button
+                    color="primary"
+                    (click)="signup()"
+                >
+                    Register
+                </button>
+                <a *ngIf="mode === 'signin'" (click)="toggleMode()">Signup</a>
                 <a *ngIf="mode === 'signup'" (click)="toggleMode()">Signin</a>
             </form>
         </div>

@@ -45,7 +45,10 @@ initSignupForm(): void {
   }
 
   signin(): void {
-    debugger;
-    const x = this.frmAuth;
+    const form = this.frmAuth.value;
+  }
+
+  signup(): void {
+      const form = this.frmAuth.value;
 }
 }
