@@ -18,17 +18,17 @@ namespace TaskManager.Infrastructure.Data.Repositories.TaskRepository
             _context = context;
         }
 
-        public Domain.Entities.TaskEntity GetById(int id)
+        public TaskEntity GetById(int id)
         {
             return _context.Tasks.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
 
-        public List<Domain.Entities.TaskEntity> GetAllByBoardId(int boardId)
+        public List<TaskEntity> GetAllByBoardId(int boardId)
         {
             return _context.Tasks.Where(x => x.BoardId.Equals(boardId)).ToList();
         }
 
-        public async Task<Domain.Entities.TaskEntity> Add(Domain.Entities.TaskEntity task)
+        public async Task<TaskEntity> Add(TaskEntity task)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace TaskManager.Infrastructure.Data.Repositories.TaskRepository
             }
         }
 
-        public async Task<Domain.Entities.TaskEntity> Update(Domain.Entities.TaskEntity task)
+        public async Task<TaskEntity> Update(TaskEntity task)
         {
             try
             {
@@ -51,6 +51,20 @@ namespace TaskManager.Infrastructure.Data.Repositories.TaskRepository
                 entry.State = EntityState.Modified;
 
                 //_context.Tasks.Update(task);
+                await _context.SaveChangesAsync();
+                return task;
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+        }
+
+        public async Task<TaskEntity> Delete(TaskEntity task)
+        {
+            try
+            {
+                _context.Tasks.Remove(task);
                 await _context.SaveChangesAsync();
                 return task;
             }

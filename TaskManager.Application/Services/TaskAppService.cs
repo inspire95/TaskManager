@@ -36,5 +36,10 @@ namespace TaskManager.Application.Services
         {
             return await _taskService.Update(task);
         }
+
+        public async Task<TaskEntity> DeleteAsync(int id)
+        {
+            return await _taskService.Delete(id);
+        }
     }
 }

@@ -14,5 +14,11 @@ namespace TaskManager.Domain.Entities
         public bool Active { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+
+        public TaskEntity()
+        {
+            Active = true;
+            CreatedAt = DateTime.Now;
+        }
     }
 }

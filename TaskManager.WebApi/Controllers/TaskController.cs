@@ -82,13 +82,28 @@ namespace TaskManager.WebApi.Controllers
         {
             try
             {
-                var storedBoard = await _taskService.Update(task);
-                return new ResponseMessage(true, storedBoard, "Board updated with success!", HttpStatusCode.OK);
+                var storedTask = await _taskService.Update(task);
+                return new ResponseMessage(true, storedTask, "Task updated with success!", HttpStatusCode.OK);
             }
             catch (Exception err)
             {
                 return new ResponseMessage(false, null, err.Message, HttpStatusCode.BadRequest);
             }
         }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<ResponseMessage> Delete(int id)
+        {
+            try
+            {
+                var storedTask = await _taskService.DeleteAsync(id);
+                return new ResponseMessage(true, null, "Task removed with success!", HttpStatusCode.OK);
+            }
+            catch (Exception err)
+            {
+                return new ResponseMessage(false, null, err.Message, HttpStatusCode.BadRequest);
+            }
+        }
+
     }
 }

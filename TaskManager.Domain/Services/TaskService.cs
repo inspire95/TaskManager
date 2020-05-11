@@ -76,5 +76,25 @@ namespace TaskManager.Domain.Services
 
             throw new Exception("Board not exists! Choice another name!");
         }
+
+        public async Task<TaskEntity> Delete(int id)
+        {
+            var storedTask = _taskRepository.GetById(id);
+
+            if (storedTask != null)
+            {
+                try
+                {
+                    var deleteTask = await _taskRepository.Delete(storedTask);
+                    return deleteTask;
+                }
+                catch (Exception error)
+                {
+                    throw error;
+                }
+            }
+
+            throw new Exception("Task not exists! Choice another name!");
+        }
     }
 }
