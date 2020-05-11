@@ -1,0 +1,8 @@
+<ng-content></ng-content>
+<mat-hint class="hint" *ngIf="showTip && !hasError()"> {{ tipMessage }}</mat-hint>
+<mat-error class="error" *ngIf="hasError()">
+    <div *ngIf="control.errors.required">{{ control.name }} is required</div>
+    <!-- <div *ngIf="control.errors.minlength">{{ control.name }} must be at least 4 characters long.</div> -->
+    <!-- <div *ngIf="control.errors.forbiddenName">{{ control.name }} cannot be Bob.</div> -->
+    <div *ngIf="control.errors.email">Invalid format</div>
+</mat-error>

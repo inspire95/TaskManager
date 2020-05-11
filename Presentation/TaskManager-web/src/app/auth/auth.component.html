@@ -2,14 +2,20 @@
     <div class="card">
         <h1 class="card__title">Task Manager</h1>
         <div class="card__content">
-            <form [formGroup]="frmAuth" novalidate>
-                <mat-form-field appearance="standard">
-                    <mat-label>Standard form field</mat-label>
-                    <input matInput placeholder="Placeholder" />
-                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                    <mat-hint>Hint</mat-hint>
-                </mat-form-field>
+            <form [formGroup]="frmAuth">
+                <app-input-validation-container>
+                    <mat-form-field>
+                        <input matInput placeholder="E-mail" type="email" formControlName="email" />
+                    </mat-form-field>
+                </app-input-validation-container>
+                <app-input-validation-container>
+                    <mat-form-field>
+                        <input matInput placeholder="Password" type="password" formControlName="password" />
+                    </mat-form-field>
+                </app-input-validation-container>
+                <button [disabled]="!frmAuth.valid" mat-raised-button color="primary">Signin</button>
             </form>
+            <a [routerLink]="['/signup']">Signup</a>
         </div>
     </div>
 </section>

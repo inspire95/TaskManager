@@ -1,12 +1,30 @@
 .card {
-    border: 1px solid red;
-    padding: 125px;
+    padding: 50px;
+    width: 60rem;
+    background-color: #fff;
+    border-radius: 5px;
     &__title {
         text-align: center;
     }
     &__content {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 20px;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            input {
+                width: 100%;
+            }
+        }
+    }
+
+    mat-form-field {
+        width: 100%;
     }
 }

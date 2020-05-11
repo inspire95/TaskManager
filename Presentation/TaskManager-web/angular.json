@@ -19,23 +19,37 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+            "assets": ["src/favicon.ico", "src/assets"],
+                        "styles": ["src/styles.scss", "src/assets/styles/main.scss"],
+                        "scripts": []
           },
           "configurations": {
+            "dev": {
+                "sourceMap": true,
+                "fileReplacements": [
+                    {
+                        "replace": "src/environments/environment.ts",
+                        "with": "src/environments/environment.ts"
+                    }
+                ]
+            },
+            "qa": {
+                "sourceMap": true,
+                "fileReplacements": [
+                    {
+                        "replace": "src/environments/environment.ts",
+                        "with": "src/environments/environment.qa.ts"
+                    }
+                ]
+            },
+
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+                "fileReplacements": [
+                    {
+                        "replace": "src/environments/environment.ts",
+                        "with": "src/environments/environment.prod.ts"
+                    }
+                ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -63,14 +77,17 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "TaskManager-web:build"
+              "browserTarget": "TaskManager-web:build"
           },
           "configurations": {
-            "production": {
-              "browserTarget": "TaskManager-web:build:production"
-            }
+              "qa": {
+                  "browserTarget": "TaskManager-web:build:qa"
+              },
+              "production": {
+                  "browserTarget": "TaskManager-web:build:production"
+              }
           }
-        },
+      },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
