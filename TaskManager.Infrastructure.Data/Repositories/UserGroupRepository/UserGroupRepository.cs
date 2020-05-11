@@ -39,5 +39,10 @@ namespace TaskManager.Infrastructure.Data.Repositories.UserGroupRepository
                 throw error;
             }
         }
+
+        public Task<UserGroupEntity> Update(UserGroupEntity usergroup)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace TaskManager.Application.Interfaces
         List<UserGroupEntity> GetByUserId(int id);
         List<UserGroupEntity> GetByBoardId(int id);
         Task<UserGroupEntity> Add(UserGroupEntity usergroup);
+        Task<UserGroupEntity> Update(UserGroupEntity usergroup);
     }
 }

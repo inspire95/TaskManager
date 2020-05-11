@@ -32,5 +32,10 @@ namespace TaskManager.Application.Services
         {
             return await _usergroupService.Add(usergroup);
         }
+
+        public async Task<UserGroupEntity> Update(UserGroupEntity usergroup)
+        {
+            return await _usergroupService.Update(usergroup);
+        }
     }
 }

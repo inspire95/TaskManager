@@ -78,5 +78,18 @@ namespace TaskManager.WebApi.Controllers
                 return new ResponseMessage(false, null, err.Message, HttpStatusCode.BadRequest);
             }
         }
+        [HttpPut("update")]
+        public async Task<ResponseMessage> Update(UserGroupEntity usergroup)
+        {
+            try
+            {
+                var storedUserGroup = await _usergroupService.Update(usergroup);
+                return new ResponseMessage(true, storedUserGroup, "UserGroup updated with success!", HttpStatusCode.OK);
+            }
+            catch (Exception err)
+            {
+                return new ResponseMessage(false, null, err.Message, HttpStatusCode.BadRequest);
+            }
+        }
     }
 }

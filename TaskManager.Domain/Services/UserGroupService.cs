@@ -51,5 +51,32 @@ namespace TaskManager.Domain.Services
 
             throw new Exception("Board not exists! Choice another name!");
         }
+
+        public async Task<UserGroupEntity> Update(UserGroupEntity usergroup)
+        {
+            var storedUserGroup = _usergroupRepository.GetByBoardId(usergroup.BoardId);
+
+            foreach (var selectedUserGroup in storedUserGroup)
+            {
+                if (selectedUserGroup.UserId.Equals(usergroup.UserId))
+                {
+                    try
+                    {
+                        selectedUserGroup.IsAdministrator = usergroup.IsAdministrator;
+                        selectedUserGroup.Active = usergroup.Active;
+                        selectedUserGroup.UpdatedAt = DateTime.Now;
+
+                        var updatedUserGroup = await _usergroupRepository.Update(selectedUserGroup);
+                        return updatedUserGroup;
+                    }
+                    catch (Exception error)
+                    {
+                        throw error;
+                    }
+                }
+            }
+
+            throw new Exception("UserGroup not exists! Choice another name!");
+        }
     }
 }
