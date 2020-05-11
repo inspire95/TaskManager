@@ -4,15 +4,23 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 // Material
-import { MatToolbarModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule } from "@angular/material";
+import {
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatMenuModule
+} from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { InputComponent } from "./components/input/input.component";
 import { EqualValidator } from "./directives/equal-validator.directive";
 import { EmailValidator } from "./directives/email-validator.directive";
+import { HeaderComponent } from "./components/header/header.component";
 
 @NgModule({
-    declarations: [InputComponent, EqualValidator, EmailValidator],
+    declarations: [InputComponent, EqualValidator, EmailValidator, HeaderComponent],
     imports: [
         CommonModule,
         MatToolbarModule,
@@ -23,7 +31,8 @@ import { EmailValidator } from "./directives/email-validator.directive";
         FormsModule,
         ReactiveFormsModule,
         MatInputModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatMenuModule
     ],
     exports: [
         MatToolbarModule,
@@ -37,7 +46,9 @@ import { EmailValidator } from "./directives/email-validator.directive";
         BrowserAnimationsModule,
         InputComponent,
         EqualValidator,
-        EmailValidator
+        EmailValidator,
+        HeaderComponent,
+        MatMenuModule
     ]
 })
 export class SharedModule {}

@@ -5,6 +5,7 @@ import { AuthService } from "../shared/services/auth/auth.service";
 import { Auth } from "../shared/models/auth.model";
 import { catchError } from "rxjs/operators";
 import { User } from "../shared/models/user.model";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-auth",
@@ -17,7 +18,7 @@ export class AuthComponent implements OnInit {
     public userLogged: User;
     public feedback: string;
 
-    constructor(private fb: FormBuilder, private authService: AuthService) {}
+    constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
 
     ngOnInit() {
       this.mode = "signin";
@@ -56,7 +57,8 @@ initSignupForm(): void {
             (res: User) => {
                 this.feedback = undefined;
                 this.userLogged = res;
-                console.log("Logged in user ", this.userLogged);
+                console.log("Logged user ", this.userLogged);
+                this.router.navigateByUrl("/home");
             },
             (err: Error) => {
                 this.feedback = err.message;
@@ -70,6 +72,7 @@ initSignupForm(): void {
         (res: User) => {
             this.feedback = undefined;
             this.userLogged = res;
+            this.router.navigateByUrl("/home");
         },
         (err: Error) => {
             this.feedback = err.message;

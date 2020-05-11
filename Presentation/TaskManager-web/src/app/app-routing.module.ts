@@ -3,11 +3,16 @@ import { Routes, RouterModule } from "@angular/router";
 
 // Components
 import { AuthComponent } from "./auth/auth.component"; 
+import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
     {
         path: "",
         component: AuthComponent
+    },
+    {
+        path: "home",
+        component: HomeComponent
     },
 ];
 
