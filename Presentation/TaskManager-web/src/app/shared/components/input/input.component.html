@@ -5,4 +5,5 @@
     <!-- <div *ngIf="control.errors.minlength">{{ control.name }} must be at least 4 characters long.</div> -->
     <!-- <div *ngIf="control.errors.forbiddenName">{{ control.name }} cannot be Bob.</div> -->
     <div *ngIf="control.errors.email">Invalid format</div>
+    <div *ngIf="control.errors.validateEqual === false">Password and Confirm Password doesn't match</div>
 </mat-error>

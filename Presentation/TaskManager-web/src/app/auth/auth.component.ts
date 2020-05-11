@@ -9,18 +9,43 @@ import { environment } from "src/environments/environment";
 })
 export class AuthComponent implements OnInit {
     public frmAuth: FormGroup;
+    public mode: string;
 
     constructor(private fb: FormBuilder) {}
 
     ngOnInit() {
-      this.initForm();
+      this.mode = "signin";
+      this.initSigninForm();
   }
 
-  initForm() {
-      this.frmAuth = this.fb.group({
+  toggleMode(): void {
+    if (this.mode === "signup") {
+        this.mode = "signin";
+        this.initSigninForm();
+    } else {
+        this.mode = "signup";
+        this.initSignupForm();
+    }
+}
+
+initSigninForm() {
+    this.frmAuth = this.fb.group({
         email: this.fb.control("", [Validators.required, Validators.email]),
         password: this.fb.control("", [Validators.required])
+    });
+}
+
+initSignupForm(): void {
+      this.frmAuth = this.fb.group({
+        name: this.fb.control("", [Validators.required]),
+        email: this.fb.control("", [Validators.required, Validators.email]),
+        password: this.fb.control("", [Validators.required]),
+        confirmPassword: this.fb.control("", [Validators.required])
       });
   }
 
+  signin(): void {
+    debugger;
+    const x = this.frmAuth;
+}
 }

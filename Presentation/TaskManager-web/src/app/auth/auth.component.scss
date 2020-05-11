@@ -1,3 +1,4 @@
+@import "../../assets/styles/abstracts/_variables";
 .auth {
     display: flex;
     align-items: center;
@@ -18,5 +19,13 @@
     
     button {
         margin-top: 3px;
+    }
+    
+    a {
+        cursor: pointer;
+        text-align: right;
+        margin-top: 5px;
+        font-size: 1.3rem;
+        color: $color-primary;
     }
 }
