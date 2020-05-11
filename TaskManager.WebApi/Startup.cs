@@ -12,6 +12,7 @@ using TaskManager.Domain.Services;
 using TaskManager.Infrastructure.Data.Context;
 using TaskManager.Infrastructure.Data.Repositories.BoardRepository;
 using TaskManager.Infrastructure.Data.Repositories.TaskRepository;
+using TaskManager.Infrastructure.Data.Repositories.UserGroupRepository;
 using TaskManager.Infrastructure.Data.Repositories.UserRepository;
 
 namespace TaskManager.WebApi
@@ -62,6 +63,11 @@ namespace TaskManager.WebApi
             services.AddScoped<ITaskAppService, TaskAppService>();
             services.AddScoped<ITaskService, TaskService>();
             services.AddScoped<ITaskRepository, TaskRepository>();
+
+            //Services UserGroup
+            services.AddScoped<IUserGroupAppService, UserGroupAppService>();
+            services.AddScoped<IUserGroupService, UserGroupService>();
+            services.AddScoped<IUserGroupRepository, UserGroupRepository>();
 
             services.AddMvc()
          .AddJsonOptions(
