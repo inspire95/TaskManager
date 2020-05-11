@@ -15,9 +15,9 @@ namespace TaskManager.Infrastructure.Data.Config
                 .IsRequired()
                 .HasMaxLength(500);
 
-            builder.Property(user => user.Surname)
-                .IsRequired()
-                .HasMaxLength(500);
+            //builder.Property(user => user.Surname)
+            //    .IsRequired()
+            //    .HasMaxLength(500);
 
             builder.Property(user => user.Email)
                 .IsRequired()
@@ -45,7 +45,7 @@ namespace TaskManager.Infrastructure.Data.Config
                 {
                     Id = 1,
                     Name = "root",
-                    Surname = "root",
+                    //Surname = "root",
                     Email = "root@root.com",
                     Password = "123",
                     CreatedAt = DateTime.Now,

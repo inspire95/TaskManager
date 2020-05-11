@@ -60,6 +60,7 @@
                 <a *ngIf="mode === 'signin'" (click)="toggleMode()">Signup</a>
                 <a *ngIf="mode === 'signup'" (click)="toggleMode()">Signin</a>
             </form>
+            <p class="errorMessage" *ngIf="feedback">{{ feedback }}</p>
         </div>
     </div>
 </section>

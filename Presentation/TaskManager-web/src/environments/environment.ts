@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiUrl: "https://localhost:44363",
     regex: {
         email: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
     }
