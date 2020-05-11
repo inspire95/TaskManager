@@ -1,0 +1,54 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    //Padronizar o HTML inteiro com uma fonte é facilita trabalhar com REM
+    //Nesse caso, 1 REM = 10px
+    //-> font-size: 10px;
+    //o tamanho padrão da fonte em todos os browsers é 16px;
+    // 1 REM = 10px
+    // 10px/16 = 0.62510px/16 = 0.625
+    font-size: 62.5%; // => 1rem = 10px // 10px/16px = 62.5%
+
+    // @include respond-phone {
+    //   font-size: 50%;
+    // }
+
+    @include respond(tab-land) {
+        // width < 1200?
+        font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+    }
+    @include respond(tab-port) {
+        // width < 900?
+        font-size: 50%; // 1rem = 8px, 8/16 = 50%
+    }
+    @include respond(phone) {
+        font-size: 30%;
+    }
+    @include respond(desktop) {
+        font-size: 75%; // 1rem = 12px, 12/16 = 75%
+    }
+}
+
+body {
+    box-sizing: border-box;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}
+
+a,
+a:link,
+a:hover,
+a:visited,
+a:active {
+    outline: 0;
+    text-decoration: none;
+    color: $color-white;
+}
