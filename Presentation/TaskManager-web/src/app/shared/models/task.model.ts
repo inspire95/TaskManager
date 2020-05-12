@@ -7,7 +7,8 @@ export class Task {
     content: string;
     boardId: number;
     board: Board;
-    status: Status;
+    //status: Status;
+    status: number;
     active: boolean;
     createdAt: Date;
     updatedAt: Date;

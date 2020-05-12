@@ -47,7 +47,7 @@ export class BoardAddModalComponent implements OnInit {
         newBoard.userId = user.id;
         this.boardService
             .Add(newBoard)
-            .pipe(first())
+            //.pipe(first())
             .subscribe(
                 (res: Board) => {
                     this.dialogRef.close(res);

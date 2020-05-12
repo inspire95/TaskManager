@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 // Material
+import { DragDropModule } from "@angular/cdk/drag-drop";
 import {
     MatToolbarModule,
     MatIconModule,
@@ -23,9 +24,10 @@ import { InputComponent } from "./components/input/input.component";
 import { EqualValidator } from "./directives/equal-validator.directive";
 import { EmailValidator } from "./directives/email-validator.directive";
 import { HeaderComponent } from "./components/header/header.component";
+import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop/drag-and-drop.component';
 
 @NgModule({
-    declarations: [InputComponent, EqualValidator, EmailValidator, HeaderComponent],
+    declarations: [InputComponent, EqualValidator, EmailValidator, HeaderComponent, DragAndDropComponent],
     imports: [
         CommonModule,
         MatToolbarModule,
@@ -42,7 +44,8 @@ import { HeaderComponent } from "./components/header/header.component";
         MatTooltipModule,
         MatSnackBarModule,
         MatCardModule,
-        MatChipsModule
+        MatChipsModule,
+        DragDropModule
     ],
     exports: [
         MatToolbarModule,
@@ -63,7 +66,9 @@ import { HeaderComponent } from "./components/header/header.component";
         MatTooltipModule,
         MatSnackBarModule,
         MatCardModule,
-        MatChipsModule
+        MatChipsModule,
+        DragAndDropComponent,
+        DragDropModule
     ]
 })
 export class SharedModule {}

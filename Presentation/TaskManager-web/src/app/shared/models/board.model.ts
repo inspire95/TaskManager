@@ -8,7 +8,7 @@ export class Board {
     userId: number;
     active: boolean;
     usergroups: UserGroup[];
-    Tasks: Task[];
+    tasks: Task[];
     createdAt: Date;
     updatedAt: Date;
 }

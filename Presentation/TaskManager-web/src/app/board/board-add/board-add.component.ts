@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output } from "@angular/core";
 import { BoardAddModalService } from "./board-add-modal/board-add-modal.service";
 
 import { take } from "rxjs/operators";
@@ -6,6 +6,8 @@ import { Board } from "src/app/shared/models/board.model";
 import { BoardService } from "src/app/shared/services/board/board.service";
 import { SnackbarService } from "src/app/shared/components/snackbar/snackbar";
 import { AuthSingletonService } from "src/app/shared/singletons/auth/auth-singleton.service";
+import { EventEmitter } from "events";
+import { BoardSingletonService } from "src/app/shared/singletons/board/board-singleton.service";
 
 @Component({
     selector: "app-board-add",
@@ -18,6 +20,7 @@ export class BoardAddComponent implements OnInit {
     constructor(
         private boardAddModalService: BoardAddModalService,
         private boardService: BoardService,
+        private boardSingletonService: BoardSingletonService,
         private snackbarService: SnackbarService,
         private authSingletonService: AuthSingletonService
     ) {}
@@ -31,16 +34,15 @@ export class BoardAddComponent implements OnInit {
         this.boardAddModalService.openDialog();
         this.boardAddModalService.result.pipe(take(1)).subscribe(
             (newBoard: any) => {
-                if (newBoard.hasOwnProperty("id")) {
+                if (newBoard && newBoard.hasOwnProperty("id")) {
                     this.snackbarService.open("Board created with success!");
-                } else {
-                    this.snackbarService.open("An error has occurred. Try again... :(");
-                    console.log(newBoard.message);
-                    // this.snackbarService.open(newBoard.message);
+                    this.boardSingletonService.newBoardAlert(true);
                 }
             },
             (err: Error) => {
-                this.snackbarService.open(err.message);
+                if (err) {
+                    this.snackbarService.open(err.message);
+                }
             }
         );
     }

@@ -5,9 +5,10 @@ import { BoardAddComponent } from "./board-add/board-add.component";
 import { SharedModule } from "../shared/shared.module";
 import { BoardAddModalComponent } from "./board-add/board-add-modal/board-add-modal.component";
 import { BoardListComponent } from './board-list/board-list.component';
+import { BoardDetailComponent } from './board-detail/board-detail.component';
 
 @NgModule({
-    declarations: [BoardComponent, BoardAddComponent, BoardAddModalComponent, BoardListComponent],
+    declarations: [BoardComponent, BoardAddComponent, BoardAddModalComponent, BoardListComponent, BoardDetailComponent],
     imports: [CommonModule, SharedModule],
     exports: [BoardComponent, BoardAddComponent, BoardListComponent],
     entryComponents: [BoardAddModalComponent]

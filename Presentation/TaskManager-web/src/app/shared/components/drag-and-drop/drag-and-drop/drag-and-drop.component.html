@@ -1,0 +1,58 @@
+<section class="drag-and-drop">
+    <div class="container">
+        <h2>To do</h2>
+
+        <div
+            cdkDropList
+            #todoList="cdkDropList"
+            [cdkDropListData]="todo"
+            [cdkDropListConnectedTo]="[doingList, doneList]"
+            class="list"
+            (cdkDropListDropped)="drop($event, 0)"
+        >
+            <ng-container *ngFor="let task of todo">
+                <div class="box" (mousedown)="selectTask(task)" *ngIf="task.active" cdkDrag>
+                    {{ task.title }}<mat-icon class="action" (click)="disabledTask(task)">delete</mat-icon>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Doing</h2>
+
+        <div
+            cdkDropList
+            #doingList="cdkDropList"
+            [cdkDropListData]="doing"
+            [cdkDropListConnectedTo]="[todoList, doneList]"
+            class="list"
+            (cdkDropListDropped)="drop($event, 1)"
+        >
+            <ng-container *ngFor="let task of doing">
+                <div class="box" (mousedown)="selectTask(task)" *ngIf="task.active" cdkDrag>
+                    {{ task.title }}<mat-icon class="action" (click)="disabledTask(task)">delete</mat-icon>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Done</h2>
+
+        <div
+            cdkDropList
+            #doneList="cdkDropList"
+            [cdkDropListData]="done"
+            [cdkDropListConnectedTo]="[todoList, doingList]"
+            class="list"
+            (cdkDropListDropped)="drop($event, 2)"
+        >
+            <ng-container *ngFor="let task of done">
+                <div class="box" (mousedown)="selectTask(task)" *ngIf="task.active" cdkDrag>
+                    {{ task.title }}<mat-icon class="action" (click)="disabledTask(task)">delete</mat-icon>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>

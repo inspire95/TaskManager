@@ -10,6 +10,7 @@ import { User } from "../shared/models/user.model";
 })
 export class HomeComponent implements OnInit{
     public user: User = new User();
+    public showMenu: boolean;
 
     constructor(private router: Router, private authSingleton: AuthSingletonService) {}
 

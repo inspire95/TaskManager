@@ -2,7 +2,7 @@
     <p *ngIf="userBoards.length === 0">You don't have any Boards to show. Click to create the first!</p>
     <ng-container *ngIf="userBoards.length > 0">
         <ng-container *ngFor="let userBoard of userBoards">
-            <mat-card class="">
+            <mat-card (click)="selectBoard(userBoard)">
                 <mat-card-header>
                     <mat-icon matTooltip="Board">dashboard</mat-icon>
                     <mat-card-title>{{ userBoard.name }}</mat-card-title>
