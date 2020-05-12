@@ -22,4 +22,9 @@ export class AuthSingletonService {
         }
         return JSON.parse(user) || undefined;
     }
+    
+    destroyUser(): void {
+        this.user = undefined;
+        this.isloggedIn.next(false);
+    }
 }

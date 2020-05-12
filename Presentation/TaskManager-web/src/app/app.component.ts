@@ -8,7 +8,7 @@ import { AuthSingletonService } from "./shared/singletons/auth/auth-singleton.se
     styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
-  title = "frontend";
+  title = "TaskManager";
   activeMenu: boolean;
 
   constructor(private authSingletonService: AuthSingletonService) {}

@@ -1,3 +1,5 @@
-<!-- {{ selectedBoard | json }} -->
-
-<app-task *ngIf="selectedBoard" [board]="selectedBoard"></app-task>
+<section class="board-detail">
+    <!-- {{ selectedBoard | json }} -->
+    <h1 class="mat-display-1 base-margin">{{ selectedBoard.name }}</h1>
+    <app-task *ngIf="selectedBoard" [board]="selectedBoard"></app-task>
+</section>

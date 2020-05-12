@@ -12,6 +12,9 @@ import { SnackbarService } from "src/app/shared/components/snackbar/snackbar";
 import { BoardSingletonService } from "src/app/shared/singletons/board/board-singleton.service";
 import { take } from "rxjs/operators";
 
+// Utils
+import { slugify } from "src/app/shared/utils/slugify";
+
 @Component({
     selector: "app-board-list",
     templateUrl: "./board-list.component.html",
@@ -62,6 +65,6 @@ export class BoardListComponent implements OnInit {
     selectBoard(board: Board): void {
       this.boardSingletonService.selectBoard(board);
       // this.router.navigateByUrl("home/board-detail");
-      this.router.navigateByUrl("board-detail");
+      this.router.navigateByUrl(`${slugify(board.name)}/board-detail`);
   }
 }

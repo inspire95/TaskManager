@@ -1,5 +1,5 @@
 <section class="section-board-list">
-    <p *ngIf="userBoards.length === 0">You don't have any Boards to show. Click to create the first!</p>
+    <p class="base-margin" *ngIf="userBoards.length === 0">You don't have any Boards to show. Click to create the first!</p>
     <ng-container *ngIf="userBoards.length > 0">
         <ng-container *ngFor="let userBoard of userBoards">
             <mat-card (click)="selectBoard(userBoard)">
