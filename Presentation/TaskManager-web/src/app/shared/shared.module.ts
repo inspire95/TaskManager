@@ -11,7 +11,9 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule,
+    MatSnackBarModule
 } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
@@ -34,7 +36,9 @@ import { HeaderComponent } from "./components/header/header.component";
         MatInputModule,
         BrowserAnimationsModule,
         MatMenuModule,
-        MatDialogModule
+        MatDialogModule,
+        MatTooltipModule,
+        MatSnackBarModule
     ],
     exports: [
         MatToolbarModule,
@@ -51,7 +55,9 @@ import { HeaderComponent } from "./components/header/header.component";
         EmailValidator,
         HeaderComponent,
         MatMenuModule,
-        MatDialogModule
+        MatDialogModule,
+        MatTooltipModule,
+        MatSnackBarModule
     ]
 })
 export class SharedModule {}
