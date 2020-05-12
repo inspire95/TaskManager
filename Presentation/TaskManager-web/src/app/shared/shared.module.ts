@@ -13,7 +13,9 @@ import {
     MatMenuModule,
     MatDialogModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule,
+    MatChipsModule
 } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
@@ -38,7 +40,9 @@ import { HeaderComponent } from "./components/header/header.component";
         MatMenuModule,
         MatDialogModule,
         MatTooltipModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatCardModule,
+        MatChipsModule
     ],
     exports: [
         MatToolbarModule,
@@ -57,7 +61,9 @@ import { HeaderComponent } from "./components/header/header.component";
         MatMenuModule,
         MatDialogModule,
         MatTooltipModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatCardModule,
+        MatChipsModule
     ]
 })
 export class SharedModule {}

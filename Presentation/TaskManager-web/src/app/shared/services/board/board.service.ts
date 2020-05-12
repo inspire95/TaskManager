@@ -23,4 +23,15 @@ export class BoardService {
             })
         );
     }
+    
+    GetAllByUserId(userId: number): Observable<Board[]> {
+        return this.http.get(`${environment.apiUrl}/api/board/getallbyuserId/${userId}`).pipe(
+            map((res: ApiResponse) => {
+                if (res.status === 200) {
+                    return res.content as Board[];
+                }
+                throw new Error(res.message);
+            })
+        );
+    }
 }

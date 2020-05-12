@@ -1,0 +1,23 @@
+<section class="section-board-list">
+    <p *ngIf="userBoards.length === 0">You don't have any Boards to show. Click to create the first!</p>
+    <ng-container *ngIf="userBoards.length > 0">
+        <ng-container *ngFor="let userBoard of userBoards">
+            <mat-card class="">
+                <mat-card-header>
+                    <mat-icon matTooltip="Board">dashboard</mat-icon>
+                    <mat-card-title>{{ userBoard.name }}</mat-card-title>
+                    <!-- <mat-card-subtitle>
+                        <mat-icon matBadgePosition="after" matBadgeSize="large" matBadge="2" matBadgeColor="warn"
+                            >assignment</mat-icon
+                        >
+                    </mat-card-subtitle> -->
+                </mat-card-header>
+                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" /> -->
+                <mat-card-content>
+                    <p>{{ userBoard.description }}</p>
+                </mat-card-content>
+                <!-- <mat-card-action{{ userBoard.description }}s> <button mat-button>LIKE</button> <button mat-button>SHARE</button> </mat-card-actions> -->
+            </mat-card>
+        </ng-container>
+    </ng-container>
+</section>

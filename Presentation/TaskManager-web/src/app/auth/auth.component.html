@@ -1,7 +1,7 @@
 <section class="auth">
-    <div class="card">
-        <h1 class="card__title">Task Manager</h1>
-        <div class="card__content">
+    <div class="card-authentication-form">
+        <h1 class="card-authentication-form__title">Task Manager by Inspire95</h1>
+        <div class="card-authentication-form__content">
             <form [formGroup]="frmAuth">
                 <app-input-validation-container *ngIf="mode === 'signup'">
                     <mat-form-field> <input matInput placeholder="Name" type="text" formControlName="name" /> </mat-form-field>
