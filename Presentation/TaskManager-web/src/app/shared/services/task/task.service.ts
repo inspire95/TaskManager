@@ -15,6 +15,17 @@ import { Task } from "../../models/task.model";
 export class TaskService {
     constructor(private http: HttpClient) {}
 
+    add(task: Task): Observable<Task> {
+        return this.http.post(`${environment.apiUrl}/api/task/add`, task).pipe(
+            map((res: ApiResponse) => {
+                if (res.status === 200) {
+                    return res.content as Task;
+                }
+                throw new Error(res.message);
+            })
+        );
+    }
+
     updateStatus(task: Task): Observable<Task> {
         return this.http.put(`${environment.apiUrl}/api/task/update`, task).pipe(
             map((res: ApiResponse) => {

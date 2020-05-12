@@ -1,2 +1,3 @@
-{{ selectedBoard | json }}
-<app-drag-and-drop [board]="selectedBoard"></app-drag-and-drop>
+<!-- {{ selectedBoard | json }} -->
+
+<app-task *ngIf="selectedBoard" [board]="selectedBoard"></app-task>

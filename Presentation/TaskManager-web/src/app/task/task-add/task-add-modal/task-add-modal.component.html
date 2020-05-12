@@ -1,0 +1,19 @@
+<div class="task-add-modal">
+    <h1 mat-dialog-title>Create a new task</h1>
+    <div mat-dialog-content>
+        <form [formGroup]="frmAddTask">
+            <app-input-validation-container>
+                <mat-form-field> <input matInput placeholder="Title" type="text" formControlName="title" /> </mat-form-field>
+            </app-input-validation-container>
+            <app-input-validation-container>
+                <mat-form-field>
+                    <textarea matInput placeholder="Content" type="text" formControlName="content"></textarea>
+                </mat-form-field>
+            </app-input-validation-container>
+        </form>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button (click)="onCancelClick()">Cancel</button>
+        <button mat-raised-button color="primary" (click)="onAddClick()" [disabled]="frmAddTask.invalid">Save</button>
+    </div>
+</div>

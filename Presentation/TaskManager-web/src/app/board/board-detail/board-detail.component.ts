@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnChanges } from "@angular/core";
 import { Router } from "@angular/router";
 
 // Singleton
@@ -8,6 +8,8 @@ import { AuthSingletonService } from "src/app/shared/singletons/auth/auth-single
 // Models
 import { Board } from "src/app/shared/models/board.model";
 import { User } from "src/app/shared/models/user.model";
+import { TaskSingletonService } from "src/app/shared/singletons/task/task-singleton.service";
+import { BoardService } from "src/app/shared/services/board/board.service";
 
 @Component({
     selector: "app-board-detail",

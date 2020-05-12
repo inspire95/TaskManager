@@ -5,14 +5,14 @@
         <div
             cdkDropList
             #todoList="cdkDropList"
-            [cdkDropListData]="todo"
+            [cdkDropListData]="tasks.todo"
             [cdkDropListConnectedTo]="[doingList, doneList]"
             class="list"
             (cdkDropListDropped)="drop($event, 0)"
         >
-            <ng-container *ngFor="let task of todo">
+            <ng-container *ngFor="let task of tasks.todo">
                 <div class="box" (mousedown)="selectTask(task)" *ngIf="task.active" cdkDrag>
-                    {{ task.title }}<mat-icon class="action" (click)="disabledTask(task)">delete</mat-icon>
+                    {{ task.title }}<mat-icon class="action" (click)="emitDisableTask(task)">delete</mat-icon>
                 </div>
             </ng-container>
         </div>
@@ -24,14 +24,14 @@
         <div
             cdkDropList
             #doingList="cdkDropList"
-            [cdkDropListData]="doing"
+            [cdkDropListData]="tasks.doing"
             [cdkDropListConnectedTo]="[todoList, doneList]"
             class="list"
             (cdkDropListDropped)="drop($event, 1)"
         >
-            <ng-container *ngFor="let task of doing">
+            <ng-container *ngFor="let task of tasks.doing">
                 <div class="box" (mousedown)="selectTask(task)" *ngIf="task.active" cdkDrag>
-                    {{ task.title }}<mat-icon class="action" (click)="disabledTask(task)">delete</mat-icon>
+                    {{ task.title }}<mat-icon class="action" (click)="emitDisableTask(task)">delete</mat-icon>
                 </div>
             </ng-container>
         </div>
@@ -43,14 +43,14 @@
         <div
             cdkDropList
             #doneList="cdkDropList"
-            [cdkDropListData]="done"
+            [cdkDropListData]="tasks.done"
             [cdkDropListConnectedTo]="[todoList, doingList]"
             class="list"
             (cdkDropListDropped)="drop($event, 2)"
         >
-            <ng-container *ngFor="let task of done">
-                <div class="box" (mousedown)="selectTask(task)" *ngIf="task.active" cdkDrag>
-                    {{ task.title }}<mat-icon class="action" (click)="disabledTask(task)">delete</mat-icon>
+            <ng-container *ngFor="let task of tasks.done">
+                <div class="box" (mouseover)="selectTask(task)" (mousedown)="selectTask(task)" *ngIf="task.active" cdkDrag>
+                    {{ task.title }}<mat-icon class="action" (click)="emitDisableTask(task)">delete</mat-icon>
                 </div>
             </ng-container>
         </div>

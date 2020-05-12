@@ -34,4 +34,15 @@ export class BoardService {
             })
         );
     }
+    
+    GetById(boardId: number): Observable<Board> {
+        return this.http.get(`${environment.apiUrl}/api/board/getbyid/${boardId}`).pipe(
+            map((res: ApiResponse) => {
+                if (res.status === 200) {
+                    return res.content as Board;
+                }
+                throw new Error(res.message);
+            })
+        );
+    }
 }
